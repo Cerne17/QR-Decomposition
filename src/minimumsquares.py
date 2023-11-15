@@ -14,24 +14,26 @@ def minimumSquaresDecomposition(matrixA):
 
     return matrixU, matrixT, transposedMatrixV
 
-matrices33Complete = RandomMatrixGenerator(3, 3, 3)
+if __name__ == "__main__":
 
-matrixA = matrices33Complete.generateRandomMatrix()
+    matrices33Complete = RandomMatrixGenerator(3, 3, 3)
 
-print("Matrix A:")
-print(matrixA)
-print()
+    matrixA = matrices33Complete.generateRandomMatrix()
 
-minimumSquaresSolution = minimumSquaresDecomposition(matrixA)
+    print("Matrix A:")
+    print(matrixA)
+    print()
 
-print("Matrix U:")
-print(minimumSquaresSolution[0])
-print()
+    minimumSquaresSolution = minimumSquaresDecomposition(matrixA)
 
-print("Matrix T:")
-print(minimumSquaresSolution[1])
-print()
+    print("Matrix U:")
+    print(minimumSquaresSolution[0])
+    print()
 
-print("Matrix V:")
-print(minimumSquaresSolution[2])
-print()
+    print("Matrix T:")
+    print(minimumSquaresSolution[1])
+    print()
+
+    print("Matrix V:")
+    print(minimumSquaresSolution[2])
+    print()
