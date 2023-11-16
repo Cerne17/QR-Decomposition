@@ -16,13 +16,13 @@ def backSubstitution(matrixA, vectorB):
     if (rowsSizeA > columnsSizeA and columnsSizeA == rankA):
         matrixQ, matrixR = qrDecompositionNonPermutation(matrixA)
 
-        matrixR1 = matrixR[:columnsSizeA, :]
-        matrixQ1 = matrixQ[:, :columnsSizeA]
+        matrixR1 = matrixR[:rankA, :]
+        matrixQ1 = matrixQ[:, :rankA]
 
-        vectorX = np.linalg.inv(matrixR1) @ matrixQ1.transpose() @ vectorB
+        vectorX = (np.linalg.inv(matrixR1) @ matrixQ1.transpose() @ vectorB)
 
     if (rowsSizeA < columnsSizeA and rowsSizeA == rankA):
-        matrixQ, matrixR = qrDecompositionNonPermutation(matrixA)
+        matrixQ, matrixR = qrDecompositionNonPermutation(matrixA.transpose())
         vectorY = vectorX
 
         transposedMatrixR = matrixR.transpose()

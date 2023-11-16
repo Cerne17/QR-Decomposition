@@ -7,27 +7,18 @@ class RandomMatrixGenerator:
         self.rank       = Krank
 
     def generateRandomMatrix(self):
-        matrix  = []
+        seed       = np.random.default_rng(8080)
+        vectorU = seed.integers(-20,20,(self.columnSize,1))
+        transposevectorV = seed.integers(-20,20,(1,self.lineSize))
 
-        for i in range(self.columnSize):
-            matrix.append([])
+        finalMatrix = vectorU @ transposevectorV
 
-            for j in range(self.lineSize):
-                matrix[i].append(0)
+        for i in range(self.rank-1):
+            vectorU = seed.integers(-20,20,(self.columnSize,1))
+            transposevectorV = seed.integers(-20,20,(1,self.lineSize))
 
-        for i in range(self.rank):
-            vectorU = []
-            vectorV = []
+            auxiliarMatrix = vectorU @ transposevectorV
+            finalMatrix = np.add(finalMatrix,auxiliarMatrix)
 
-            # Generating u
-            for j in range(self.lineSize):
-                vectorU.append([random.randint(0, 10)])
-            
-            # Generating v
-            for k in range(self.columnSize):
-                vectorV.append([random.randint(0, 10)])
-
-            matrix += np.dot(np.array(vectorU), np.array(vectorV).transpose())
-
-        return matrix
+        return finalMatrix
 
