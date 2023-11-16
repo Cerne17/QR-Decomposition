@@ -51,6 +51,7 @@ def qrDecompositionComplete(matrixA):
     return matrixQ, matrixR, matrixP
 
 if __name__ == "__main__":
+    print("---------- QR Non Permutation ----------")
 
     matrices33Complete = RandomMatrixGenerator(3, 3, 3)
     matrixA = matrices33Complete.generateRandomMatrix()

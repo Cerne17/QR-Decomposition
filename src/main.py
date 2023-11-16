@@ -4,8 +4,8 @@ import numpy as np
 from matricesgeneration import RandomMatrixGenerator
 
 def main():
-    rows = int(input("Insert the number of rows: "))
-    columns = int(input("Insert the number of columns: "))
+    rows = int(input("Insert the number of columns: "))
+    columns = int(input("Insert the number of rows: "))
 
     rank = int(input("Insert the rank: "))
     while (rank > min(rows, columns)):
