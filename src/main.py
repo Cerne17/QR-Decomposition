@@ -27,7 +27,17 @@ def main():
     print(vector)
 
     print("Solution: ")
-    print(backSubstitution(matrix, vector))
+
+    vectorX = backSubstitution(matrix, vector)
+
+    print(vectorX)
+    
+    print("Result Ax:")
+    print(matrix @ vectorX)
+
+    print("Vector X norm:")
+    print(np.linalg.norm(vectorX))
+    print()
 
 if __name__ == "__main__":
     main()

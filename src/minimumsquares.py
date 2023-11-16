@@ -41,7 +41,9 @@ def minimumSquaresDecomposition(matrixA, debug=False, analysis=False):
         print("Matrix V Transposed: ")
         print(transposedMatrixV)
         print()
-
+        print("Matrix U * T * V Transposed: ")
+        print(matrixU @ matrixT @ transposedMatrixV)
+        print()
 
     return matrixU, matrixT, transposedMatrixV
 

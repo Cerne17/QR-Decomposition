@@ -55,6 +55,9 @@ def qrDecompositionNonPermutation(matrixA, debug=False, analysis = False):
         print("Matrix R: ")
         print(matrixR)
         print()
+        print("Matrix QR: ")
+        print(matrixQ @ matrixR)
+        print()
 
     return matrixQ, matrixR
 
@@ -125,17 +128,19 @@ def qrDecompositionComplete(matrixA, debug=False, analysis = False):
         print("Matrix R: ")
         print(matrixR)
         print()
+        print("Matrix QR: ")
+        print(matrixQ @ matrixR)
+        print()
+        print("Matrix AP: ")
+        print(matrixA @ matrixP)
+        print()
 
     return matrixQ, matrixR, matrixP
 
 if __name__ == "__main__":
 
-    matrixE = np.array([
-            [ 230,   99,   -1],
-            [ -91, -153, -178],
-            [  -3, -147, -165]
-            ])
+    matrix = RandomMatrixGenerator(3,3,3).generateRandomMatrix()
 
-    qrSolutionNonPermE = qrDecompositionNonPermutation(matrixE, analysis=True)
+    qrSolutionNonPermE = qrDecompositionNonPermutation(matrix, analysis=True)
 
-    qrSolutionPermE = qrDecompositionComplete(matrixE, analysis=True)
+    qrSolutionPermE = qrDecompositionComplete(matrix, analysis=True)
