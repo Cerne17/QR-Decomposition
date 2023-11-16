@@ -2,7 +2,7 @@ import numpy as np
 from qrdecomposition import qrDecompositionNonPermutation, qrDecompositionComplete
 from matricesgeneration import RandomMatrixGenerator
 
-def minimumSquaresDecomposition(matrixA):
+def minimumSquaresDecomposition(matrixA, debug=False):
     transposedMatrixA = matrixA.transpose()
     matrixV, matrixR, matrixP = qrDecompositionComplete(transposedMatrixA)
 
@@ -12,28 +12,30 @@ def minimumSquaresDecomposition(matrixA):
     rowMatrixU, matrixT = qrDecompositionNonPermutation(transposedMatrixR)
     matrixU = matrixP @ rowMatrixU
 
+    if debug:
+        print("---------- Minimum Squares Decomposition ----------")
+        print("Final Matrix A: ")
+        print(matrixA)
+        print()
+        print("Default Matrix U: ")
+        print(matrixU)
+        print()
+        print("Final Matrix T: ")
+        print(matrixT)
+        print()
+        print("Final Matrix V Transposed: ")
+        print(transposedMatrixV)
+        print()
+
     return matrixU, matrixT, transposedMatrixV
 
 if __name__ == "__main__":
 
-    matrices33Complete = RandomMatrixGenerator(3, 3, 3)
+    matrixE = np.array([
+        [ 230,   99,   -1],
+        [ -91, -153, -178],
+        [  -3, -147, -165]
+        ])
 
-    matrixA = matrices33Complete.generateRandomMatrix()
+    minimumSquaresDecomposition(matrixE, debug=True)
 
-    print("Matrix A:")
-    print(matrixA)
-    print()
-
-    minimumSquaresSolution = minimumSquaresDecomposition(matrixA)
-
-    print("Matrix U:")
-    print(minimumSquaresSolution[0])
-    print()
-
-    print("Matrix T:")
-    print(minimumSquaresSolution[1])
-    print()
-
-    print("Matrix V:")
-    print(minimumSquaresSolution[2])
-    print()

@@ -85,87 +85,32 @@ def qrDecompositionComplete(matrixA, debug=False):
 
         matrixR = householderMatrix @ matrixR
         matrixQ = matrixQ @ householderMatrix.transpose()
+    
+    if debug:
+        print("---------------------")
+        print("Final Matrix A: ")
+        print(matrixA)
+        print()
+        print("Final Matrix Q: ")
+        print(matrixQ)
+        print()
+        print("Final Matrix R: ")
+        print(matrixR)
+        print()
+        print("Final Matrix P: ")
+        print(matrixP)
+        print()
+        print("---------- QR Complete End ----------")
 
     return matrixQ, matrixR, matrixP
 
 if __name__ == "__main__":
-    # print("---------- QR Non Permutation ----------")
-
-    # matrices33Complete = RandomMatrixGenerator(3, 3, 3)
-    # matrixA = matrices33Complete.generateRandomMatrix()
-    #
-    # print("Matrix A:")
-    # print(matrixA)
-    # print()
-    #
-    # qrSolutionA = qrDecompositionNonPermutation(matrixA)
-    #
-    # print("Matrix Q:")
-    # print(qrSolutionA[0])
-    # print()
-    # print("Matrix R:")
-    # print(qrSolutionA[1])
-    # print()
-    #
-    # matrices34 = RandomMatrixGenerator(4, 4, 4)
-    # matrixB = matrices34.generateRandomMatrix()
-    #
-    # print("Matrix B:")
-    # print(matrixB)
-    # print()
-    #
-    # qrSolutionB = qrDecompositionNonPermutation(matrixB)
-    #
-    # print("Matrix Q:")
-    # print(qrSolutionB[0])
-    # print()
-    # print("Matrix R:")
-    # print(qrSolutionB[1]) 
-    #
-    # print("---------- QR Complete ----------")
-    #
-    # matrixC = matrices33Complete.generateRandomMatrix()
-    #
-    # print("Matrix C:")
-    # print(matrixC)
-    # print()
-    #
-    # qrSolutionC = qrDecompositionComplete(matrixC)
-    #
-    # print("Matrix Q:")
-    # print(qrSolutionC[0])
-    # print()
-    # print("Matrix R:")
-    # print(qrSolutionC[1])
-    # print()
-    # print("Matrix P:")
-    # print(qrSolutionC[2])
-    # print()
-    #
-    # matrixD = matrices34.generateRandomMatrix()
-    #
-    # print("Matrix D:")
-    # print(matrixD)
-    # print()
-    #
-    # qrSolutionD = qrDecompositionComplete(matrixD)
-    #
-    # print("Matrix Q:")
-    # print(qrSolutionD[0])
-    # print()
-    # print("Matrix R:")
-    # print(qrSolutionD[1])
-    # print()
-    # print("Matrix P:")
-    # print(qrSolutionD[2])
-    # print()
 
     matrixE = np.array([
-        [-27, -30, 33, -12],
-        [4, 17, -52, 34],
-        [40, 51, 16, 6],
-        [7, 13, 11, 4]
-        ])
+            [ 230,   99,   -1],
+            [ -91, -153, -178],
+            [  -3, -147, -165]
+            ])
 
     qrSolutionNonPermE = qrDecompositionNonPermutation(matrixE, debug=True)
 
