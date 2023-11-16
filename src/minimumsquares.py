@@ -2,7 +2,7 @@ import numpy as np
 from qrdecomposition import qrDecompositionNonPermutation, qrDecompositionComplete
 from matricesgeneration import RandomMatrixGenerator
 
-def minimumSquaresDecomposition(matrixA, debug=False):
+def minimumSquaresDecomposition(matrixA, debug=False, analysis=False):
     transposedMatrixA = matrixA.transpose()
     matrixV, matrixR, matrixP = qrDecompositionComplete(transposedMatrixA)
 
@@ -27,6 +27,22 @@ def minimumSquaresDecomposition(matrixA, debug=False):
         print(transposedMatrixV)
         print()
 
+    if analysis:
+        print("---------- Minimum Squares Decomposition ----------")
+        print("Matrix A: ")
+        print(matrixA)
+        print()
+        print("Matrix U: ")
+        print(matrixU)
+        print()
+        print("Matrix T: ")
+        print(matrixT)
+        print()
+        print("Matrix V Transposed: ")
+        print(transposedMatrixV)
+        print()
+
+
     return matrixU, matrixT, transposedMatrixV
 
 if __name__ == "__main__":
@@ -37,5 +53,4 @@ if __name__ == "__main__":
         [  -3, -147, -165]
         ])
 
-    minimumSquaresDecomposition(matrixE, debug=True)
-
+    minimumSquaresDecomposition(matrixE, analysis=True)

@@ -3,7 +3,7 @@ from householder import getHouseholderMatrix, completeHouseholderMatrix
 import permutation as perm
 from matricesgeneration import RandomMatrixGenerator
 
-def qrDecompositionNonPermutation(matrixA, debug=False):
+def qrDecompositionNonPermutation(matrixA, debug=False, analysis = False):
     matrixQ      = getHouseholderMatrix(matrixA).transpose()
     matrixR      = getHouseholderMatrix(matrixA) @ matrixA
     lineNumbersA = len(matrixA)
@@ -44,9 +44,21 @@ def qrDecompositionNonPermutation(matrixA, debug=False):
         print()
         print("---------- QR Non Permutation End ----------")
 
+    if analysis:
+        print("---------- QR Non Permutation ----------")
+        print("Matrix A: ")
+        print(matrixA)
+        print()
+        print("Matrix Q: ")
+        print(matrixQ)
+        print()
+        print("Matrix R: ")
+        print(matrixR)
+        print()
+
     return matrixQ, matrixR
 
-def qrDecompositionComplete(matrixA, debug=False):
+def qrDecompositionComplete(matrixA, debug=False, analysis = False):
     matrixR = matrixA
     matrixQ = np.identity(len(matrixA))
     matrixP = np.identity(len(matrixA[0]))
@@ -102,6 +114,18 @@ def qrDecompositionComplete(matrixA, debug=False):
         print()
         print("---------- QR Complete End ----------")
 
+    if analysis:
+        print("---------- QR Complete ----------")
+        print("Matrix A: ")
+        print(matrixA)
+        print()
+        print("Matrix Q: ")
+        print(matrixQ)
+        print()
+        print("Matrix R: ")
+        print(matrixR)
+        print()
+
     return matrixQ, matrixR, matrixP
 
 if __name__ == "__main__":
@@ -112,6 +136,6 @@ if __name__ == "__main__":
             [  -3, -147, -165]
             ])
 
-    qrSolutionNonPermE = qrDecompositionNonPermutation(matrixE, debug=True)
+    qrSolutionNonPermE = qrDecompositionNonPermutation(matrixE, analysis=True)
 
-    qrSolutionPermE = qrDecompositionComplete(matrixE, debug=True)
+    qrSolutionPermE = qrDecompositionComplete(matrixE, analysis=True)
